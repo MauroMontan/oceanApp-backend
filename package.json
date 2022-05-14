@@ -1,0 +1,24 @@
+{
+  "name": "ocean-app",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "nodemon ./src/app.js",
+    "dev:db:migrate":"npx prisma migrate dev",
+    "dev:db:generate":"npx prisma generate"
+  },
+  "author": "Mauro Montan",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^3.14.0",
+    "express": "^4.18.1",
+    "jest": "^28.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16",
+    "prisma": "^3.14.0"
+  }
+}
