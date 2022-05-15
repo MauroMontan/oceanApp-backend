@@ -1,4 +1,4 @@
-import { AuthService } from "../services/auth_service.js";
+import { AuthService } from "../services/index.js";
 import * as jwt from "jsonwebtoken";
 
 class AuthController {
