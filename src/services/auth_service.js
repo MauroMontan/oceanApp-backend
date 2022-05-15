@@ -1,5 +1,6 @@
 import { prisma } from "../prisma/index.js";
 import * as argon from "argon2";
+import {User} from "../models/index.js";
 
 class AuthService {
 
@@ -12,6 +13,16 @@ class AuthService {
     static async hashPassword(password) {
         const hash = await argon.hash(password);
         return hash;
+    }
+
+    static async getCurrentUser(user) {
+        const currentUser = await prisma.user.findUnique({
+            where: {
+                email: user.email,
+            }
+        });
+        return new User(currentUser);
+
     }
 
     static async verifyPassword(hashPassword, userPassword) {

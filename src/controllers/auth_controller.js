@@ -20,16 +20,25 @@ class AuthController {
             }
         }
 
-
     }
-    static signin(payload, next) {
+    static async signin(payload, next) {
         const body = payload.body;
+        const user = await AuthService.getCurrentUser(body);
+        const isAuthenticated = AuthService.verifyPassword(user.password, body.password);
         try {
-            const token = jwt.sign({ body }, "secret_key");
-            return token;
+            if (!user) {
+                next(new Error("user not found"));
+            }
 
+            if (user) {
+
+                if (isAuthenticated) {
+                    const token = jwt.sign({ user }, "secret_key");
+                    return token;
+                }
+            }
         } catch (error) {
-            next(error);
+            next(new Error("invalid credentials"));
         }
 
     }
