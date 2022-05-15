@@ -6,6 +6,7 @@
   "main": "app.js",
   "scripts": {
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest",
+    "start":"node ./src/app.js",
     "dev": "nodemon ./src/app.js",
     "dev:db:migrate": "npx prisma migrate dev",
     "dev:db:generate": "npx prisma generate"
