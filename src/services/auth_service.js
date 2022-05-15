@@ -14,16 +14,13 @@ class AuthService {
         return hash;
     }
 
-    static async getCurrentUser(user) {
-        
+    static async getCurrentUser(user) {        
         const currentUser = await prisma.user.findUnique({
             where: {
                 email: user.email,
             }
         });
-
         return currentUser;
-
     }
 
     static async verifyPassword(hashPassword, userPassword) {
