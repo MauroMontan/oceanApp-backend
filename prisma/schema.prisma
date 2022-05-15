@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
     provider = "prisma-client-js"
 }
@@ -10,25 +7,35 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-enum Role {
-    USER
-    ADMIN
-    WORKER
-}
-
 model User {
     id           Int       @id @default(autoincrement())
     email        String    @unique
     name         String    @unique
     username     String    @unique
     phone_number Int?
-    birthday     DateTime?
     adress       String?
     amount       Float     @default(0.0)
     prizes       Int       @default(0)
     password     String
-    role         Role      @default(USER)
     createdAt    DateTime  @default(now())
     updatetedAt  DateTime  @updatedAt
+    role         Role      @default(USER)
+    birthday     DateTime?
+}
 
+model SeasonsRank {
+
+    id          Int      @id @default(autoincrement())
+    email       String   @unique
+    username    String   @unique
+    amount      Float    @default(0.0)
+    prizes      Int      @default(0)
+    createdAt   DateTime @default(now())
+    updatetedAt DateTime @updatedAt
+}
+
+enum Role {
+    USER
+    ADMIN
+    WORKER
 }

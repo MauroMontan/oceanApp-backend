@@ -4,8 +4,12 @@ class UserController {
     static async getAllUsers() {
         return await UserService.getAllUsers();
     }
-    static async sortUsersbyAmount(){
+    static async sortUsersbyAmount() {
         return await UserService.sortbyAmount();
+    }
+
+    static async setRank1BySeason() {
+        
     }
 }
 

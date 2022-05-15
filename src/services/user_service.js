@@ -30,6 +30,12 @@ class UserService {
         const sortByScore = users.sort((a, b) => a.amount - b.amount);
         return sortByScore.reverse();
     }
+
+    static async setRank1bySeason(user) {
+        const newRank1 = await prisma.seasonsRank.create({ data: user });
+
+        return newRank1;
+    }
 }
 
 export default UserService;
