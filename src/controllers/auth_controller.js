@@ -16,27 +16,27 @@ class AuthController {
                 next(new Error("explorer already exists"));
             }
             else {
-                next(new Error(error));
+                next(error);
             }
         }
 
     }
     static async signin(payload, next) {
         const body = payload.body;
+
         const user = await AuthService.getCurrentUser(body);
-        const isAuthenticated = AuthService.verifyPassword(user.password, body.password);
         try {
-            if (!user) {
-                next(new Error("user not found"));
+            const isAuthenticated = await AuthService.verifyPassword(user.password, body.password);
+
+            if (isAuthenticated) {
+                delete user.password;
+                const token = jwt.sign({ user }, "secret_key");
+                return { token: token };
+            }
+            if (!isAuthenticated) {
+                return { "message": "invalid credentials", code: 404 };
             }
 
-            if (user) {
-
-                if (isAuthenticated) {
-                    const token = jwt.sign({ user }, "secret_key");
-                    return token;
-                }
-            }
         } catch (error) {
             next(new Error("invalid credentials"));
         }
