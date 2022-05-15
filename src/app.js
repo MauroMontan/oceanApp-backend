@@ -1,7 +1,7 @@
 import express, { json } from "express";
 import Confing from "./config/index.js";
 import { ErrorHandling } from "./middleware/index.js";
-import { authRoutes } from "./routes/index.js";
+import { authRouter,usersRouter } from "./router/index.js";
 
 const port = Confing.PORT || 30001;
 const app = express();
@@ -12,7 +12,9 @@ app.get("/", (_, res) => {
     res.json("holas");
 });
 
-app.use("/auth",authRoutes);
+app.use("/auth",authRouter);
+
+app.use("/users",usersRouter);
 
 app.use(ErrorHandling);
 app.listen(port, () => {

@@ -13,7 +13,7 @@ class AuthController {
             return await AuthService.createUser(user);
         } catch (error) {
             if (error.code === "P2002") {
-                next(new Error("explorer already exists"));
+                next(new Error("user already exists"));
             }
             else {
                 next(error);
