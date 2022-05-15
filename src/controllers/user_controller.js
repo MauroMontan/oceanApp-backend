@@ -9,7 +9,18 @@ class UserController {
     }
 
     static async setRank1BySeason() {
-        
+
+    }
+
+    static async addAmount(req) {
+        const body = req.body;
+        const newAmount = body.newAmount;
+        return await UserService.setNewAmount(body, newAmount);
+    }
+
+    static async updateUser(req) {
+        const body = req.body;
+        return await UserService.updateUser(body);
     }
 }
 

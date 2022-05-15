@@ -36,6 +36,18 @@ class UserService {
 
         return newRank1;
     }
+
+    static async updateUser(user) {
+        const updatedUser = await prisma.user.update({ where: { email: user.email }, data: user });
+        return { "message": "user updated", user: updatedUser };
+    }
+
+    static async setNewAmount(user, newAmount) {
+        const tempAmount = parseInt(user.amount) + newAmount;
+        const userUpdated = await prisma.user.update({ where: { email: user.email }, data: { amount: tempAmount } });
+
+        return userUpdated;
+    }
 }
 
 export default UserService;
