@@ -12,9 +12,9 @@ we are having issues with server connection but is working with client test data
 
 [client app on web!](https://thankful-dune-0bf88f210.1.azurestaticapps.net/)
 
-
 - home page 
-![cliente app](https://imgur.com/CKfj7aS) 
+![image](https://user-images.githubusercontent.com/68311575/168500208-eab646b0-e7ea-475f-b698-4edf9df487ad.png)
+
 
 # backend app installation 
 
