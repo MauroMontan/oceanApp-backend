@@ -2,7 +2,21 @@
 
 # Together by oceans
 
-this is the backend app for Together by oceans client
+this is the backend app for Together by oceans client 
+
+## This is the client app
+
+we are having issues with server connection but is working with client test data
+
+[client app repository](https://github.com/MauroMontan/ocean-frontend-app) 
+
+[client app on web!](https://thankful-dune-0bf88f210.1.azurestaticapps.net/)
+
+
+- home page 
+![cliente app](https://imgur.com/CKfj7aS) 
+
+# backend app installation 
 
 - installing dependencies 
 
@@ -36,6 +50,7 @@ npm run dev
 ```
 
 test endpoints by importing insonia request collection file on this repo
+
 
 
 
