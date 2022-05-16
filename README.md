@@ -2,9 +2,10 @@
 
 # Together by oceans
 
-this is the backend app for Together by oceans client 
+[Project management and information here](https://github.com/AndreaAnastacio/HackTheOcean/tree/main)
 
-## This is the client app
+
+### This is the info for our client app
 
 we are having issues with server connection but is working with client test data
 
