@@ -13,13 +13,13 @@ app.use(json());
 
  
 const corsOptions = {
-    origin: "*"
+    origin: "https://thankful-dune-0bf88f210.1.azurestaticapps.net/"
 };
 
 app.use(cors(corsOptions));
 
 app.get("/", (_, res) => {
-    res.json("holas");
+    res.json("together by oceans API REST");
 });
 
 app.use("/auth", authRouter);
