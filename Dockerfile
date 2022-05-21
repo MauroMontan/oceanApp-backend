@@ -1,0 +1,17 @@
+FROM node:16
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+ENV PORT=8080
+
+EXPOSE 8080
+
+RUN npx prisma generate
+
+CMD ["npm","start"]
